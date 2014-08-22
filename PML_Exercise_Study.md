@@ -39,19 +39,19 @@ d[8:20,2:8]
 
 ```
 ##                           n   mean    sd median trimmed    mad    min
-## roll_belt             11776  64.45 62.75 114.00   63.47  60.79  -28.6
-## pitch_belt            11776   0.26 22.40   5.31    2.38  10.52  -54.9
-## yaw_belt              11776 -11.05 95.38 -12.60  -22.98 111.79 -180.0
-## total_accel_belt      11776  11.32  7.74  17.00   11.13  11.86    0.0
-## kurtosis_roll_belt*   11776   5.04 32.02   1.00    1.00   0.00    1.0
-## kurtosis_picth_belt*  11776   4.46 27.04   1.00    1.00   0.00    1.0
+## roll_belt             11776  64.00 62.76 112.00   62.92  65.23  -28.8
+## pitch_belt            11776   0.24 22.33   5.24    2.34   9.56  -54.9
+## yaw_belt              11776 -11.31 95.31 -14.25  -23.34 109.34 -179.0
+## total_accel_belt      11776  11.27  7.73  17.00   11.07  11.86    0.0
+## kurtosis_roll_belt*   11776   5.26 33.76   1.00    1.00   0.00    1.0
+## kurtosis_picth_belt*  11776   4.57 27.38   1.00    1.00   0.00    1.0
 ## kurtosis_yaw_belt*    11776   1.02  0.14   1.00    1.00   0.00    1.0
-## skewness_roll_belt*   11776   5.10 32.13   1.00    1.00   0.00    1.0
-## skewness_roll_belt.1* 11776   4.54 27.63   1.00    1.00   0.00    1.0
+## skewness_roll_belt*   11776   5.13 32.74   1.00    1.00   0.00    1.0
+## skewness_roll_belt.1* 11776   4.42 26.80   1.00    1.00   0.00    1.0
 ## skewness_yaw_belt*    11776   1.02  0.14   1.00    1.00   0.00    1.0
-## max_roll_belt           248  -5.73 93.58  -4.90  -16.45 122.76  -94.1
-## max_picth_belt          248  13.16  8.03  18.00   12.88  11.86    3.0
-## max_yaw_belt*         11776   1.33  2.92   1.00    1.00   0.00    1.0
+## max_roll_belt           247  -4.93 95.03  -4.60  -15.33 123.35  -94.3
+## max_picth_belt          247  12.89  7.96  18.00   12.60  11.86    3.0
+## max_yaw_belt*         11776   1.37  3.28   1.00    1.00   0.00    1.0
 ```
 
 ```r
@@ -102,14 +102,14 @@ r_model$finalModel
 ##       * denotes terminal node
 ## 
 ##  1) root 11776 8428 A (0.28 0.19 0.17 0.16 0.18)  
-##    2) roll_belt< 130.5 10807 7468 A (0.31 0.21 0.19 0.18 0.11)  
-##      4) pitch_forearm< -33.65 958    9 A (0.99 0.0094 0 0 0) *
-##      5) pitch_forearm>=-33.65 9849 7459 A (0.24 0.23 0.21 0.2 0.12)  
-##       10) magnet_dumbbell_y< 433.5 8303 5964 A (0.28 0.18 0.24 0.19 0.11)  
-##         20) roll_forearm< 123.5 5163 3067 A (0.41 0.18 0.19 0.17 0.061) *
-##         21) roll_forearm>=123.5 3140 2112 C (0.077 0.18 0.33 0.23 0.19) *
-##       11) magnet_dumbbell_y>=433.5 1546  757 B (0.033 0.51 0.041 0.22 0.19) *
-##    3) roll_belt>=130.5 969    9 E (0.0093 0 0 0 0.99) *
+##    2) roll_belt< 129.5 10721 7410 A (0.31 0.21 0.19 0.18 0.11)  
+##      4) pitch_forearm< -34.15 942    7 A (0.99 0.0074 0 0 0) *
+##      5) pitch_forearm>=-34.15 9779 7403 A (0.24 0.23 0.21 0.2 0.12)  
+##       10) magnet_dumbbell_y< 439.5 8262 5934 A (0.28 0.18 0.24 0.19 0.1)  
+##         20) roll_forearm< 123.5 5122 3048 A (0.4 0.18 0.19 0.17 0.057) *
+##         21) roll_forearm>=123.5 3140 2107 C (0.081 0.18 0.33 0.23 0.18) *
+##       11) magnet_dumbbell_y>=439.5 1517  736 B (0.032 0.51 0.042 0.23 0.19) *
+##    3) roll_belt>=129.5 1055   37 E (0.035 0 0 0 0.96) *
 ```
 
 ```r
@@ -122,11 +122,11 @@ table(r_predicted, r_testing$classe)
 ```
 ##            
 ## r_predicted    A    B    C    D    E
-##           A 2017  629  620  567  202
-##           B   55  527   51  250  204
-##           C  155  362  697  469  365
+##           A 2008  655  629  570  198
+##           B   33  505   45  226  183
+##           C  154  358  694  490  380
 ##           D    0    0    0    0    0
-##           E    5    0    0    0  671
+##           E   37    0    0    0  681
 ```
 
 ```r
@@ -139,33 +139,33 @@ confusionMatrix(r_predicted,r_testing$classe)
 ## 
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 2017  629  620  567  202
-##          B   55  527   51  250  204
-##          C  155  362  697  469  365
+##          A 2008  655  629  570  198
+##          B   33  505   45  226  183
+##          C  154  358  694  490  380
 ##          D    0    0    0    0    0
-##          E    5    0    0    0  671
+##          E   37    0    0    0  681
 ## 
 ## Overall Statistics
-##                                        
-##                Accuracy : 0.499        
-##                  95% CI : (0.487, 0.51)
-##     No Information Rate : 0.284        
-##     P-Value [Acc > NIR] : <2e-16       
-##                                        
-##                   Kappa : 0.345        
-##  Mcnemar's Test P-Value : NA           
+##                                         
+##                Accuracy : 0.496         
+##                  95% CI : (0.484, 0.507)
+##     No Information Rate : 0.284         
+##     P-Value [Acc > NIR] : <2e-16        
+##                                         
+##                   Kappa : 0.341         
+##  Mcnemar's Test P-Value : NA            
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity             0.904   0.3472   0.5095    0.000   0.4653
-## Specificity             0.641   0.9115   0.7914    1.000   0.9992
-## Pos Pred Value          0.500   0.4848   0.3403      NaN   0.9926
-## Neg Pred Value          0.944   0.8534   0.8843    0.836   0.8925
+## Sensitivity             0.900   0.3327   0.5073    0.000   0.4723
+## Specificity             0.634   0.9230   0.7867    1.000   0.9942
+## Pos Pred Value          0.495   0.5091   0.3343      NaN   0.9485
+## Neg Pred Value          0.941   0.8522   0.8832    0.836   0.8932
 ## Prevalence              0.284   0.1935   0.1744    0.164   0.1838
-## Detection Rate          0.257   0.0672   0.0888    0.000   0.0855
-## Detection Prevalence    0.514   0.1385   0.2610    0.000   0.0862
-## Balanced Accuracy       0.772   0.6293   0.6505    0.500   0.7323
+## Detection Rate          0.256   0.0644   0.0885    0.000   0.0868
+## Detection Prevalence    0.517   0.1264   0.2646    0.000   0.0915
+## Balanced Accuracy       0.767   0.6279   0.6470    0.500   0.7332
 ```
 
 ###Boosting
@@ -183,55 +183,55 @@ summary(b_model)
 
 ```
 ##                                       var  rel.inf
-## roll_belt                       roll_belt 22.06972
-## pitch_forearm               pitch_forearm 10.61799
-## yaw_belt                         yaw_belt  8.48938
-## magnet_dumbbell_z       magnet_dumbbell_z  7.13584
-## magnet_dumbbell_y       magnet_dumbbell_y  5.05192
-## magnet_belt_z               magnet_belt_z  4.98197
-## roll_forearm                 roll_forearm  4.82124
-## pitch_belt                     pitch_belt  4.33140
-## roll_dumbbell               roll_dumbbell  3.13392
-## accel_forearm_x           accel_forearm_x  2.61313
-## gyros_belt_z                 gyros_belt_z  2.59544
-## gyros_dumbbell_y         gyros_dumbbell_y  2.10195
-## accel_dumbbell_y         accel_dumbbell_y  1.99770
-## magnet_forearm_z         magnet_forearm_z  1.94854
-## accel_forearm_z           accel_forearm_z  1.68205
-## yaw_arm                           yaw_arm  1.63274
-## accel_dumbbell_x         accel_dumbbell_x  1.62039
-## roll_arm                         roll_arm  1.29462
-## magnet_arm_x                 magnet_arm_x  1.13108
-## magnet_belt_x               magnet_belt_x  1.06453
-## magnet_arm_z                 magnet_arm_z  1.04316
-## magnet_dumbbell_x       magnet_dumbbell_x  0.87616
-## magnet_belt_y               magnet_belt_y  0.78494
-## magnet_forearm_x         magnet_forearm_x  0.74875
-## accel_dumbbell_z         accel_dumbbell_z  0.67596
-## total_accel_dumbbell total_accel_dumbbell  0.59711
-## magnet_arm_y                 magnet_arm_y  0.51714
-## gyros_arm_y                   gyros_arm_y  0.47169
-## gyros_belt_y                 gyros_belt_y  0.46052
-## pitch_dumbbell             pitch_dumbbell  0.41467
-## accel_belt_z                 accel_belt_z  0.34367
-## yaw_dumbbell                 yaw_dumbbell  0.32871
-## total_accel_arm           total_accel_arm  0.29931
-## total_accel_forearm   total_accel_forearm  0.28696
-## accel_forearm_y           accel_forearm_y  0.28522
-## accel_arm_x                   accel_arm_x  0.26678
-## gyros_forearm_z           gyros_forearm_z  0.23693
-## accel_arm_y                   accel_arm_y  0.22947
-## gyros_dumbbell_x         gyros_dumbbell_x  0.18896
-## accel_arm_z                   accel_arm_z  0.17483
-## magnet_forearm_y         magnet_forearm_y  0.13908
-## yaw_forearm                   yaw_forearm  0.10752
-## total_accel_belt         total_accel_belt  0.08681
-## gyros_dumbbell_z         gyros_dumbbell_z  0.06946
-## gyros_arm_x                   gyros_arm_x  0.05066
+## roll_belt                       roll_belt 22.44297
+## pitch_forearm               pitch_forearm 10.73621
+## yaw_belt                         yaw_belt  8.47054
+## magnet_dumbbell_z       magnet_dumbbell_z  6.38021
+## magnet_dumbbell_y       magnet_dumbbell_y  5.35129
+## roll_forearm                 roll_forearm  5.30109
+## magnet_belt_z               magnet_belt_z  4.96973
+## pitch_belt                     pitch_belt  3.62969
+## gyros_belt_z                 gyros_belt_z  3.17066
+## accel_dumbbell_y         accel_dumbbell_y  3.09984
+## roll_dumbbell               roll_dumbbell  2.51620
+## magnet_dumbbell_x       magnet_dumbbell_x  2.41657
+## accel_forearm_x           accel_forearm_x  2.29612
+## magnet_forearm_z         magnet_forearm_z  2.19006
+## gyros_dumbbell_y         gyros_dumbbell_y  1.89562
+## yaw_arm                           yaw_arm  1.73809
+## accel_dumbbell_x         accel_dumbbell_x  1.39066
+## magnet_arm_z                 magnet_arm_z  1.26525
+## accel_dumbbell_z         accel_dumbbell_z  1.01372
+## magnet_belt_x               magnet_belt_x  0.96460
+## magnet_belt_y               magnet_belt_y  0.92183
+## magnet_forearm_x         magnet_forearm_x  0.89575
+## accel_forearm_z           accel_forearm_z  0.73228
+## accel_belt_z                 accel_belt_z  0.66371
+## roll_arm                         roll_arm  0.64386
+## magnet_arm_x                 magnet_arm_x  0.60476
+## total_accel_dumbbell total_accel_dumbbell  0.47923
+## total_accel_forearm   total_accel_forearm  0.46314
+## gyros_arm_y                   gyros_arm_y  0.45084
+## gyros_belt_y                 gyros_belt_y  0.44129
+## magnet_arm_y                 magnet_arm_y  0.32103
+## magnet_forearm_y         magnet_forearm_y  0.30829
+## gyros_dumbbell_x         gyros_dumbbell_x  0.28812
+## yaw_forearm                   yaw_forearm  0.24096
+## gyros_dumbbell_z         gyros_dumbbell_z  0.21334
+## accel_forearm_y           accel_forearm_y  0.20903
+## gyros_forearm_z           gyros_forearm_z  0.19121
+## pitch_dumbbell             pitch_dumbbell  0.19061
+## accel_arm_x                   accel_arm_x  0.18152
+## yaw_dumbbell                 yaw_dumbbell  0.12912
+## accel_arm_y                   accel_arm_y  0.08231
+## gyros_arm_x                   gyros_arm_x  0.05683
+## accel_arm_z                   accel_arm_z  0.05181
+## total_accel_belt         total_accel_belt  0.00000
 ## gyros_belt_x                 gyros_belt_x  0.00000
 ## accel_belt_x                 accel_belt_x  0.00000
 ## accel_belt_y                 accel_belt_y  0.00000
 ## pitch_arm                       pitch_arm  0.00000
+## total_accel_arm           total_accel_arm  0.00000
 ## gyros_arm_z                   gyros_arm_z  0.00000
 ## gyros_forearm_x           gyros_forearm_x  0.00000
 ## gyros_forearm_y           gyros_forearm_y  0.00000
@@ -247,11 +247,11 @@ table(b_predicted, b_testing$classe)
 ```
 ##            
 ## b_predicted    A    B    C    D    E
-##           A 2195   50    0    2    1
-##           B   26 1422   49    6   20
-##           C    8   43 1293   35   13
-##           D    2    2   24 1231   14
-##           E    1    1    2   12 1394
+##           A 2206   57    0    1    3
+##           B   17 1407   26    5   20
+##           C    7   51 1323   53   15
+##           D    2    1   18 1221   17
+##           E    0    2    1    6 1387
 ```
 
 ```r
@@ -264,33 +264,33 @@ confusionMatrix(b_predicted, b_testing$classe)
 ## 
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 2195   50    0    2    1
-##          B   26 1422   49    6   20
-##          C    8   43 1293   35   13
-##          D    2    2   24 1231   14
-##          E    1    1    2   12 1394
+##          A 2206   57    0    1    3
+##          B   17 1407   26    5   20
+##          C    7   51 1323   53   15
+##          D    2    1   18 1221   17
+##          E    0    2    1    6 1387
 ## 
 ## Overall Statistics
 ##                                         
-##                Accuracy : 0.96          
-##                  95% CI : (0.956, 0.965)
+##                Accuracy : 0.962         
+##                  95% CI : (0.957, 0.966)
 ##     No Information Rate : 0.284         
 ##     P-Value [Acc > NIR] : < 2e-16       
 ##                                         
-##                   Kappa : 0.95          
-##  Mcnemar's Test P-Value : 1.82e-06      
+##                   Kappa : 0.951         
+##  Mcnemar's Test P-Value : 1.93e-15      
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity             0.983    0.937    0.945    0.957    0.967
-## Specificity             0.991    0.984    0.985    0.994    0.998
-## Pos Pred Value          0.976    0.934    0.929    0.967    0.989
-## Neg Pred Value          0.993    0.985    0.988    0.992    0.993
+## Sensitivity             0.988    0.927    0.967    0.949    0.962
+## Specificity             0.989    0.989    0.981    0.994    0.999
+## Pos Pred Value          0.973    0.954    0.913    0.970    0.994
+## Neg Pred Value          0.995    0.983    0.993    0.990    0.991
 ## Prevalence              0.284    0.193    0.174    0.164    0.184
-## Detection Rate          0.280    0.181    0.165    0.157    0.178
-## Detection Prevalence    0.287    0.194    0.177    0.162    0.180
-## Balanced Accuracy       0.987    0.960    0.965    0.975    0.982
+## Detection Rate          0.281    0.179    0.169    0.156    0.177
+## Detection Prevalence    0.289    0.188    0.185    0.160    0.178
+## Balanced Accuracy       0.989    0.958    0.974    0.972    0.980
 ```
 
 ###Random Forests
@@ -340,11 +340,11 @@ table(rf_predicted, rf_testing$classe)
 ```
 ##             
 ## rf_predicted    A    B    C    D    E
-##            A 2229   13    0    0    0
-##            B    3 1501    9    1    0
-##            C    0    4 1355   13    5
-##            D    0    0    4 1271    3
-##            E    0    0    0    1 1434
+##            A 2230   15    0    0    0
+##            B    2 1501    6    0    0
+##            C    0    2 1355   29    3
+##            D    0    0    7 1256    1
+##            E    0    0    0    1 1438
 ```
 
 ```r
@@ -357,33 +357,33 @@ confusionMatrix(rf_predicted, rf_testing$classe)
 ## 
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 2229   13    0    0    0
-##          B    3 1501    9    1    0
-##          C    0    4 1355   13    5
-##          D    0    0    4 1271    3
-##          E    0    0    0    1 1434
+##          A 2230   15    0    0    0
+##          B    2 1501    6    0    0
+##          C    0    2 1355   29    3
+##          D    0    0    7 1256    1
+##          E    0    0    0    1 1438
 ## 
 ## Overall Statistics
 ##                                         
-##                Accuracy : 0.993         
-##                  95% CI : (0.991, 0.995)
+##                Accuracy : 0.992         
+##                  95% CI : (0.989, 0.993)
 ##     No Information Rate : 0.284         
 ##     P-Value [Acc > NIR] : <2e-16        
 ##                                         
-##                   Kappa : 0.991         
+##                   Kappa : 0.989         
 ##  Mcnemar's Test P-Value : NA            
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity             0.999    0.989    0.990    0.988    0.994
-## Specificity             0.998    0.998    0.997    0.999    1.000
-## Pos Pred Value          0.994    0.991    0.984    0.995    0.999
-## Neg Pred Value          0.999    0.997    0.998    0.998    0.999
+## Sensitivity             0.999    0.989    0.990    0.977    0.997
+## Specificity             0.997    0.999    0.995    0.999    1.000
+## Pos Pred Value          0.993    0.995    0.976    0.994    0.999
+## Neg Pred Value          1.000    0.997    0.998    0.995    0.999
 ## Prevalence              0.284    0.193    0.174    0.164    0.184
-## Detection Rate          0.284    0.191    0.173    0.162    0.183
-## Detection Prevalence    0.286    0.193    0.176    0.163    0.183
-## Balanced Accuracy       0.998    0.993    0.994    0.994    0.997
+## Detection Rate          0.284    0.191    0.173    0.160    0.183
+## Detection Prevalence    0.286    0.192    0.177    0.161    0.183
+## Balanced Accuracy       0.998    0.994    0.993    0.988    0.999
 ```
 
 ###Study Findings
@@ -404,11 +404,108 @@ plot(b_model, metric='Accuracy', main="Boosting Model Accuracy")
 ![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-72.png) 
 
 ```r
-plot(r_model, metric='Accuracy', main="Decision Trees Model Accuracy")
+plot(r_model, metric='Accuracy', main="RPart Model Accuracy")
 ```
 
 ![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-73.png) 
+###Cross Validation of Out of Sample Errors and Accuracy
+To validate that the model is fairly assessed by the Confusion Matrix, we will repeat the model application to 3 passes of resampling the original data, limiting cross-validation in the model fitting to 2 levels and checking for variance in accuracy or final model selection across the resamples. In the absence of variance, the method will be assumed to be appropriate.
 
+
+```r
+#reset the number of cross-validation iterations to a lower range since this exercise is to cross-validate objectively
+cvLimit <- trainControl(method="cv", number = 2)
+
+#pass one of the data
+set.seed(1000)
+cvTrain <- createDataPartition(y=data$classe,p=0.60, list=FALSE)
+cvTraining <- data[cvTrain,]
+cvTesting <- data[-cvTrain,]
+cvt <- cvTraining[,d$vars]
+cv_model_one <- train(classe ~ ., method="rf", trControl=cvLimit, data=cvt, prox=TRUE)
+cv_predict_one <- predict(cv_model_one, newdata = cvTesting[-1])
+cv_model_one$finalModel
+```
+
+```
+## 
+## Call:
+##  randomForest(x = x, y = y, mtry = param$mtry, proximity = TRUE) 
+##                Type of random forest: classification
+##                      Number of trees: 500
+## No. of variables tried at each split: 27
+## 
+##         OOB estimate of  error rate: 0.79%
+## Confusion matrix:
+##      A    B    C    D    E class.error
+## A 3340    5    2    0    1    0.002389
+## B   14 2255    9    1    0    0.010531
+## C    0   11 2036    7    0    0.008763
+## D    0    1   28 1899    2    0.016062
+## E    0    1    6    5 2153    0.005543
+```
+
+```r
+#pass two of the data
+set.seed(2000)
+cvTrain <- createDataPartition(y=data$classe,p=0.60, list=FALSE)
+cvTraining <- data[cvTrain,]
+cvTesting <- data[-cvTrain,]
+cvt <- cvTraining[,d$vars]
+cv_model_two <- train(classe ~ ., method="rf", trControl=cvLimit, data=cvt, prox=TRUE)
+cv_predict_two <- predict(cv_model_two, newdata = cvTesting[-1])
+cv_model_two$finalModel
+```
+
+```
+## 
+## Call:
+##  randomForest(x = x, y = y, mtry = param$mtry, proximity = TRUE) 
+##                Type of random forest: classification
+##                      Number of trees: 500
+## No. of variables tried at each split: 27
+## 
+##         OOB estimate of  error rate: 0.82%
+## Confusion matrix:
+##      A    B    C    D    E class.error
+## A 3341    5    2    0    0    0.002091
+## B   20 2247   11    1    0    0.014041
+## C    0   12 2036    6    0    0.008763
+## D    0    2   22 1904    2    0.013472
+## E    0    2    3    8 2152    0.006005
+```
+
+```r
+#pass three of the data
+set.seed(3000)
+cvTrain <- createDataPartition(y=data$classe,p=0.60, list=FALSE)
+cvTraining <- data[cvTrain,]
+cvTesting <- data[-cvTrain,]
+cvt <- cvTraining[,d$vars]
+cv_model_three <- train(classe ~ ., method="rf", trControl=cvLimit, data=cvt, prox=TRUE)
+cv_predict_three <- predict(cv_model_three, newdata = cvTesting[-1])
+cv_model_three$finalModel
+```
+
+```
+## 
+## Call:
+##  randomForest(x = x, y = y, mtry = param$mtry, proximity = TRUE) 
+##                Type of random forest: classification
+##                      Number of trees: 500
+## No. of variables tried at each split: 27
+## 
+##         OOB estimate of  error rate: 0.72%
+## Confusion matrix:
+##      A    B    C    D    E class.error
+## A 3342    3    1    0    2    0.001792
+## B   15 2260    4    0    0    0.008337
+## C    0   12 2034    8    0    0.009737
+## D    0    1   26 1902    1    0.014508
+## E    0    2    4    6 2153    0.005543
+```
+Additional execution of the chosen model holds up under data variation as the Accuracy for the chosen model (mtry 27)
+is consistent. The accuracy is determined to reliably gauge the expected out of sample errors in final proof of model execution.
 
 As a final step this study will predict the exercise accuracy class from a sample of 20 rows of data that is independent of the data that produced the model.
 
